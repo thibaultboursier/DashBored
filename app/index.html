@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DashBored</title>
+
+    <!-- css dependencies -->
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+          rel="stylesheet" type="text/css">
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- end css dependencies -->
+
+    <!-- css custom -->
+    <link href="assets/css/app.css" rel="stylesheet">
+    <link href="assets/css/responsive.css" rel="stylesheet">
+    <!-- end css custom -->
+</head>
+<body>
+
+<!-- navigation -->
+<a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle">
+    <i class="fa fa-bars"></i>
+</a>
+<nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <li>
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle">
+                <i class="fa fa-times"></i>
+            </a>
+        </li>
+        <li class="sidebar-brand">
+            <a href="#top" onclick=$("#menu-close").click();>Top</a>
+        </li>
+        <li>
+            <a href="https://github.com/taharBakir" onclick=$("#menu-close").click();>Compte github</a>
+        </li>
+        <li>
+            <a href="#" onclick=$("#menu-close").click();>Configuration</a>
+        </li>
+    </ul>
+</nav>
+<!-- end navigation -->
+
+<!-- header -->
+<header id="top" class="header"></header>
+<!-- end header -->
+
+<!-- services -->
+<section id="services" class="services bg-primary">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-10 col-lg-offset-1">
+                <h2>Available ressources</h2>
+                <hr class="small">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                    <a id="hackerNews" href='#hackerNewsBox' nbStories="10"
+                                       urlTop="https://hacker-news.firebaseio.com/v0/topstories.json"
+                                       urlDetail="https://hacker-news.firebaseio.com/v0/item/">
+                                        <img style='height: 100px;'
+                                             src="http://www.ycombinator.com/images/ycombinator-logo-fb889e2e.png"/>
+                                    </a>
+                                </span>
+                            <h4>
+                                <strong>Hacker News</strong>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                    <a id="stackOverflow" href='#stackOverflowBox' nbquestions="10"
+                                       urlTop="https://api.stackexchange.com/2.2/questions/no-answers?order=desc&sort=creation&tagged=java&site=stackoverflow"
+                                       style=' text-indent: -999em; display: block; width: 200px; height: 50px; background-image: url("http://cdn.sstatic.net/stackoverflow/img/sprites.svg?v=a7723f5f7e59"),none; background-position: top left; background-repeat: no-repeat; position: relative; top: 40px; left:-40px;'></a>
+                                </span>
+                            <h4>
+                                <strong>Stack Overflow</strong>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                    <a id="dzoneJava" href='#dzoneJavaBox'
+                                       url="http://feeds.dzone.com/java" style="margin-top:-30px;">
+                                        <img style='height: 100px; background-color:white;'
+                                             src="https://dz2cdn3.dzone.com/themes/dz20/images/dz-logo-v.svg"/>
+                                    </a>
+                                </span>
+                            <h4>
+                                <strong>Dzone <span style="color: #f0ad4e; ">Java</span></strong>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                    <a id="dzoneWebDev" href='#dzoneWebDevBox'
+                                       url="http://feeds.dzone.com/webdev" style="margin-top:-30px;">
+                                        <img style='height: 100px; background-color:white;'
+                                             src="https://dz2cdn3.dzone.com/themes/dz20/images/dz-logo-v.svg"/>
+                                    </a>
+                                </span>
+                            <h4>
+                                <strong>Dzone <span style="color: #f0ad4e; ">WebDev</span></strong>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                    <a id="redditProgramming" href='#redditProgrammingBox'
+                                       url="https://www.reddit.com/r/programming/.rss">
+                                        <img style='background-color:white; padding: 5px ;'
+                                             src="https://b.thumbs.redditmedia.com/2rTE46grzsr-Ll3Q.png"/>
+                                    </a>
+                                </span>
+                            <h4>
+                                <strong>Reddit Programming</strong>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.col-lg-10 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+<!-- end services -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 text-center">
+            <div id="hackerNewsBox"></div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 text-center">
+            <div id="stackOverflowBox"></div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 text-center">
+            <div id="dzoneJavaBox"></div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 text-center">
+            <div id="dzoneWebDevBox"></div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 text-center">
+            <div id="redditProgrammingBox"></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 text-center">
+                <br/>
+                <h4><strong>Dash Bored</strong>
+                </h4>
+
+                <p>Paris</p>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-phone fa-fw"></i> (+33) 602057064</li>
+                    <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:tahar.bakir@gmail.com">tahar.bakir@gmail.com</a>
+                    </li>
+                </ul>
+                <br>
+                <ul class="list-inline">
+                    <li>
+                        <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
+                    </li>
+                </ul>
+                <hr class="small">
+                <p class="text-muted">Copyright &copy; Tahar Bakir</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- end footer -->
+
+<!-- loading -->
+<div id="loading">
+    <div class="loader">
+        <i class="fa fa-spinner fa-spin"></i>
+    </div>
+</div>
+<!-- end loading -->
+
+<!-- js dependencies -->
+<script src="https://www.google.com/jsapi"></script>
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../bower_components/handlebars/handlebars.min.js"></script>
+<!-- end js dependencies -->
+
+<!-- js custom -->
+<script src="assets/js/app.js"></script>
+<script src="assets/js/app.all.js"></script>
+<!-- end js custom -->
+
+</body>
+</html>
