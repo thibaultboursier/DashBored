@@ -1,0 +1,12 @@
+{
+  "name": "dashbored",
+  "version": "0.1.0",
+  "authors": "Tahar Bakir",
+  "dependencies": {
+    "jquery": "latest",
+    "bootstrap":"latest",
+    "handlebars":"latest",
+    "font-awesome":"latest",
+    "normalize.css": "latest"
+  }
+}
