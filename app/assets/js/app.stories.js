@@ -26,7 +26,7 @@ App.Stories = (function () {
     };
 
     /** Module init */
-    var init = function (Obj) {
+    var init = function () {
     };
 
     return {

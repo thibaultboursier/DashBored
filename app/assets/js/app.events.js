@@ -3,16 +3,17 @@ App.Events = (function () {
 
     /** Init navigation */
     var _initNavigation = function () {
-        var _navigation = $(document.getElementById('navigation'));
+        var navigation = $(document.getElementById('navigation')),
+            sidebar_wrapper = $(document.getElementById('sidebar-wrapper'));
 
-        _navigation.on('click', '#menu-close', function (e) {
+        navigation.on('click', '#menu-close', function (e) {
             e.preventDefault();
-            $("#sidebar-wrapper").toggleClass("active");
+            sidebar_wrapper.toggleClass("active");
         });
 
-        _navigation.on('click', '#menu-toggle', function (e) {
+        navigation.on('click', '#menu-toggle', function (e) {
             e.preventDefault();
-            $("#sidebar-wrapper").toggleClass("active");
+            sidebar_wrapper.toggleClass("active");
         });
     };
 
