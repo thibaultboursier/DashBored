@@ -12,26 +12,23 @@ App.All = (function() {
         });
     };
 
-    var _showTopStories = function (storieUrl, storieTitle, storieAuthor, box, idStorie, callback) {
-        var template = "<div class='storie' id='" + idStorie + "'>" +
-            "<a href='" + storieUrl + "' class='storieTitle' title='" + storieTitle + "'>" +
-            "<h2>" + storieTitle + "</h2>" +
-            "</a>" +
-            "<div class='storieAuthor'>" +
-            "<span class='by'>by</span> : " +
-            "<strong class='pseudo'>" + storieAuthor + "</strong>" +
-            "</div>" +
-            "</div>";
+    var _showTopStories = (function () {
+        var list_stories = $("#template-stories").html(),
+            template;
 
-        $(box).append($(template)
-            .hide()
-            .delay(30 * idStorie)
-            .fadeIn(200 * idStorie, function () {
-                if (typeof callback !== 'undefined') {
-                    callback();
-                }
-            }));
-    };
+        return function (data, box, callback) {
+            list_stories = list_stories.replace(/ }}/g, "}}").replace(/{{ /g, "{{");
+            template = Handlebars.compile(list_stories);
+
+            $(box).append(
+                $(template(data)).fadeIn(200 * data.id, function () {
+                    if (typeof callback !== 'undefined') {
+                        callback();
+                    }
+                })
+            );
+        }
+    }());
 
     /** Module init */
     var init = function(Obj) {
@@ -64,8 +61,7 @@ App.All = (function() {
             var urlTop = $(this).attr('urlTop'),
                 urlDetail = $(this).attr('urlDetail'),
                 nbStories = parseInt($(this).attr('nbStories'), 10),
-                topstories,
-                storieDetails;
+                topstories;
 
             var getTopStories = (function () {
                 _getURL(urlTop).success(function (data) {
@@ -78,10 +74,10 @@ App.All = (function() {
             })();
 
             var getStoriesDetails = function (i) {
-                var url = urlDetail.concat(topstories[i]).concat(".json");
+                var url = urlDetail.concat(topstories[i]).concat(".json"),
+                    stories = {};
 
                 _getURL(url).success(function (data) {
-                    storieDetails = data;
 
                     if (i === nbStories - 1) {
                         var callback = function () {
@@ -89,9 +85,15 @@ App.All = (function() {
                         };
                     }
 
-                    _showTopStories(storieDetails.url, storieDetails.title, storieDetails.by, "#hackerNewsBox", i, callback);
+                    stories.stories = [{
+                        id: i,
+                        title: data.title,
+                        author: data.by,
+                        url: data.url
+                    }];
+                    _showTopStories(stories, "#hackerNewsBox", callback);
                 });
-            };
+            }
         });
 
         $('#stackOverflow').click(function () {
@@ -199,8 +201,6 @@ App.All = (function() {
                 });
             })();
         });
-
-
     };
 
     return {

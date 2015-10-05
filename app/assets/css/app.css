@@ -272,3 +272,12 @@ footer {
 #loading .loader i{
     color:#fff;
 }
+
+ul.box{
+    list-style: none;
+    padding:0;
+}
+
+ul.box li:first-child{
+    margin-top:60px;
+}
