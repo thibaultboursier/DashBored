@@ -19,27 +19,29 @@
 <body>
 
 <!-- navigation -->
-<a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle">
-    <i class="fa fa-bars"></i>
-</a>
-<nav id="sidebar-wrapper">
-    <ul class="sidebar-nav">
-        <li>
-            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle">
-                <i class="fa fa-times"></i>
-            </a>
-        </li>
-        <li class="sidebar-brand">
-            <a href="#top" onclick=$("#menu-close").click();>Top</a>
-        </li>
-        <li>
-            <a href="https://github.com/taharBakir" onclick=$("#menu-close").click();>Compte github</a>
-        </li>
-        <li>
-            <a href="#" onclick=$("#menu-close").click();>Configuration</a>
-        </li>
-    </ul>
-</nav>
+<section id="navigation">
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle">
+        <i class="fa fa-bars"></i>
+    </a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li>
+                <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle">
+                    <i class="fa fa-times"></i>
+                </a>
+            </li>
+            <li class="sidebar-brand">
+                <a href="#top" onclick=$("#menu-close").click();>Top</a>
+            </li>
+            <li>
+                <a href="https://github.com/taharBakir" onclick=$("#menu-close").click();>Compte github</a>
+            </li>
+            <li>
+                <a href="#" onclick=$("#menu-close").click();>Configuration</a>
+            </li>
+        </ul>
+    </nav>
+</section>
 <!-- end navigation -->
 
 <!-- header -->
@@ -60,7 +62,7 @@
                                     <a id="hackerNews" href='#hackerNewsBox' nbStories="10"
                                        urlTop="https://hacker-news.firebaseio.com/v0/topstories.json"
                                        urlDetail="https://hacker-news.firebaseio.com/v0/item/">
-                                        <img style='height: 100px;'
+                                        <img height="100px" width="auto"
                                              src="http://www.ycombinator.com/images/ycombinator-logo-fb889e2e.png"/>
                                     </a>
                                 </span>
@@ -134,6 +136,7 @@
 </section>
 <!-- end services -->
 
+<!-- boxes -->
 <div class="container">
     <div class="row">
         <div class="col-lg-10 col-lg-offset-1 text-center">
@@ -170,6 +173,7 @@
         </div>
     </div>
 </div>
+<!-- end boxes -->
 
 <!-- footer -->
 <footer>
@@ -214,8 +218,8 @@
 </div>
 <!-- end loading -->
 
-<!-- template list-stories -->
-<script id="template-stories" type="text/x-handlebars-template">
+<!-- template stories -->
+<script id="tpl-stories" type="text/x-handlebars-template">
     {{ #stories }}
     <li class='storie' id='{{ id }}'>
         <a href='{{ url }}' class='{{ title }}' title='{{ title }}' target='_blank'>
@@ -238,7 +242,9 @@
 
 <!-- js custom -->
 <script src="assets/js/app.js"></script>
-<script src="assets/js/app.all.js"></script>
+<script src="assets/js/app.common.js"></script>
+<script src="assets/js/app.events.js"></script>
+<script src="assets/js/app.stories.js"></script>
 <!-- end js custom -->
 
 </body>

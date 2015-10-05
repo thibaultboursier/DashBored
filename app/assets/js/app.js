@@ -5,7 +5,7 @@ App = (function() {
 
     /** Module init */
     var init = function() {
-        App.All.init();
+        App.Events.init();
     };
 
     return {
