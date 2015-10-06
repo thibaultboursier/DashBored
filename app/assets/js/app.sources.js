@@ -1,18 +1,49 @@
-App.Stories = (function () {
+App.Sources = (function () {
     'use strict';
 
-    var _story;
+    var _source;
 
+    /** Get data from JSON or XML source */
     var _getData = function () {
+        var url = _source.getAttribute('data-url'),
+            format = _source.getAttribute('data-format'),
+            cache = (_source.getAttribute('data-cache') === 'true'),
+            getData;
 
+        switch (format) {
+            case 'json':
+                getData = App.Common.Ajax.getJSON;
+                break;
+            case 'xml':
+                getData = App.Common.Ajax.getParsedRSS;
+                break;
+        }
+
+        getData(url, cache).done(function (data) {
+            _handleData(data);
+        });
+    };
+
+    /**
+     * Handle data
+     * @param {Object} data - Data object for generating html with Handlebars
+     */
+    var _handleData = function (data) {
+        var len;
+
+        if (data.hasOwnProperty('items')) {
+            data = data.items;
+        }
+
+        len = data.length;
     };
 
     /** Return HTML */
-    var getHTML = function () {
-        var template = $("#tpl-stories").html(),
+    var _getHTML = function () {
+        var template = $("#tpl-sources").html(),
             html;
         /**
-         * @param {Array} data - Data array for generating html with Handlebars
+         * @param {Object} data - Data object for generating html with Handlebars
          */
         return function (data) {
             template = template.replace(/ }}/g, '}}').replace(/{{ /g, '{{');
@@ -23,7 +54,7 @@ App.Stories = (function () {
     };
 
     /** Insert HTML into target **/
-    var insertHTML = function (html, target, callback) {
+    var _insertHTML = function (html, target, callback) {
         $(target).append(html);
 
         if (typeof callback === 'function') {
@@ -32,19 +63,19 @@ App.Stories = (function () {
     };
 
     /** Module init */
-    var init = function (story) {
-        if (typeof story === 'undefined') {
+    var init = function (source) {
+        if (typeof source === 'undefined') {
             return false;
         }
 
-        _story = story;
+        _source = source;
 
+        App.Common.Loading.showLoading();
+        _getData();
     };
 
     return {
-        init: init,
-        getHTML: getHTML,
-        insertHTML: insertHTML
+        init: init
     }
 })();
 

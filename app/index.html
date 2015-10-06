@@ -59,7 +59,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="service-item">
                                 <span class="fa-stack fa-4x">
-                                    <a id="hackerNews" data-box="true" href='#hackerNewsBox' data-stories-number="10"
+                                    <a id="hackerNews" data-box="true" href='#hackerNewsBox' data-stories-number="10" data-format="json"
                                        data-url-top="https://hacker-news.firebaseio.com/v0/topstories.json"
                                        data-url-detail="https://hacker-news.firebaseio.com/v0/item/">
                                         <img height="100px" width="auto"
@@ -74,8 +74,8 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="service-item">
                                 <span class="fa-stack fa-4x">
-                                    <a id="stackOverflow" data-box="true" href='#stackOverflowBox' data-questions-number="10"
-                                       data-url-top="https://api.stackexchange.com/2.2/questions/no-answers?order=desc&sort=creation&tagged=java&site=stackoverflow"
+                                    <a id="stackOverflow" href='#stackOverflowBox' data-box="true" data-questions-number="10" data-format="json" data-cache="true"
+                                       data-url="https://api.stackexchange.com/2.2/questions/no-answers?order=desc&sort=creation&tagged=java&site=stackoverflow"
                                        style=' text-indent: -999em; display: block; width: 200px; height: 50px; background-image: url("http://cdn.sstatic.net/stackoverflow/img/sprites.svg?v=a7723f5f7e59"),none; background-position: top left; background-repeat: no-repeat; position: relative; top: 40px; left:-40px;'></a>
                                 </span>
                             <h4>
@@ -219,7 +219,7 @@
 <!-- end loading -->
 
 <!-- template stories -->
-<script id="tpl-stories" type="text/x-handlebars-template">
+<script id="tpl-sources" type="text/x-handlebars-template">
     {{ #stories }}
     <li class='storie' id='{{ id }}'>
         <a href='{{ url }}' class='{{ title }}' title='{{ title }}' target='_blank'>
@@ -244,7 +244,7 @@
 <script src="assets/js/app.js"></script>
 <script src="assets/js/app.common.js"></script>
 <script src="assets/js/app.events.js"></script>
-<script src="assets/js/app.stories.js"></script>
+<script src="assets/js/app.sources.js"></script>
 <!-- end js custom -->
 
 </body>

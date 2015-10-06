@@ -21,7 +21,7 @@ App.Events = (function () {
         for (i; i < len; i++) {
             boxes[i].onclick = function (e) {
                 e.preventDefault();
-                App.Stories.init(this);
+                App.Sources.init(this);
             };
         }
     };

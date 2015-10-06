@@ -23,11 +23,13 @@ App.Common = (function () {
     var Ajax = (function () {
         /**
          * @param {string} url - RSS flux url
+         * @param {boolean} cache - Enable or disable cache
          */
-        function getParsedRSS(url) {
+        function getParsedRSS(url, cache) {
             return $.ajax({
                 url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=' + encodeURIComponent(url),
-                dataType: 'json'
+                dataType: 'json',
+                cache: cache || false
             });
         }
 
