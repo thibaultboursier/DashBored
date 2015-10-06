@@ -1,6 +1,12 @@
 App.Stories = (function () {
     'use strict';
 
+    var _story;
+
+    var _getData = function () {
+
+    };
+
     /** Return HTML */
     var getHTML = function () {
         var template = $("#tpl-stories").html(),
@@ -26,7 +32,13 @@ App.Stories = (function () {
     };
 
     /** Module init */
-    var init = function () {
+    var init = function (story) {
+        if (typeof story === 'undefined') {
+            return false;
+        }
+
+        _story = story;
+
     };
 
     return {
