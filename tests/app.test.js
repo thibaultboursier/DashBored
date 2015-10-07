@@ -3,5 +3,4 @@
  */
 describe('App ', function() {
 
-
 });
