@@ -6,7 +6,9 @@
     "url": "https://github.com/thibaultboursier/DashBored.git"
   },
   "devDependencies": {
-    "jasmine": "latest",
-    "karma": "latest"
+    "karma": "^0.13.10",
+    "karma-chrome-launcher": "^0.2.1",
+    "karma-html-reporter": "^0.2.7",
+    "karma-jasmine": "^0.3.6"
   }
 }
