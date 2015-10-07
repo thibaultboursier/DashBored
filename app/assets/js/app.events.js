@@ -1,3 +1,5 @@
+var App = App || {};
+
 App.Events = (function () {
     'use strict';
 
