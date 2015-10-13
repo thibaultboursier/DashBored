@@ -5,3 +5,5 @@
 
 ####Install all dependencies
     bower install
+
+In progress.
